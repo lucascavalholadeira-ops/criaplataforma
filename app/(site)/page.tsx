@@ -512,20 +512,6 @@ export default function Home() {
       </section>
       <section>
         <Container className="flex flex-wrap gap-5 pb-20 sm:pb-[120px]">
-          <div data-surge className="flex min-w-0 flex-[2_1_480px] flex-col justify-center gap-3 rounded-3xl border-2 border-dashed border-black/25 p-7 sm:p-9">
-            <div className="text-sm text-suave">[case real aqui: logo, nicho e cidade]</div>
-            <div className="font-display text-[24px] font-semibold leading-[1.2] sm:text-[28px]">"[frase do cliente sobre o que mudou depois do Painel]"</div>
-            <div className="mt-2 flex flex-wrap gap-8">
-              <div>
-                <div className="text-[13px] text-suave">Antes</div>
-                <div className="font-display text-[30px] font-bold text-apagado">[x]</div>
-              </div>
-              <div>
-                <div className="text-[13px] text-suave">Depois</div>
-                <div className="font-display text-[30px] font-bold">[y]</div>
-              </div>
-            </div>
-          </div>
           <div data-surge style={{ "--atraso": "120ms" } as CSSProperties} className="flex min-w-0 flex-[1_1_280px] flex-col justify-between gap-6 rounded-3xl bg-black p-7 text-creme sm:p-9">
             <div>
               <h3 className="text-[26px] font-semibold leading-[1.15]">Estamos montando os primeiros cases.</h3>
