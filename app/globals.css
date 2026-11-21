@@ -1,0 +1,271 @@
+@import "tailwindcss";
+
+/* Tokens do design da Cria (Tailwind v4) */
+@theme {
+  --font-sans: var(--font-figtree), system-ui, sans-serif;
+  --font-display: var(--font-fredoka), system-ui, sans-serif;
+
+  --color-creme: #f4eddb;
+  --color-creme-2: #ede4cc;
+  --color-creme-3: #e4d9bd;
+  --color-papel: #fffcf5;
+  --color-noite: #14130f;
+  --color-noite-2: #24221c;
+  --color-noite-3: #2a2820;
+  --color-texto: #000;
+  --color-texto-2: #4a4436;
+  --color-suave: #6b6455;
+  --color-claro: #e4dcc8;
+  --color-claro-2: #c9c0ac;
+  --color-claro-3: #b8af9c;
+  --color-apagado: #8e8675;
+
+  --color-fechou: #17663a;
+  --color-fechou-bg: #d7eedd;
+  --color-fechou-forte: #0f4a29;
+  --color-fechou-ponto: #1f9d55;
+  --color-duvida: #8a5a00;
+  --color-duvida-bg: #f8e7c2;
+  --color-duvida-forte: #5e3d00;
+  --color-duvida-ponto: #d9930d;
+  --color-recusou: #9e2f27;
+  --color-recusou-bg: #f6d9d5;
+  --color-recusou-forte: #6e1f19;
+  --color-recusou-ponto: #c8453b;
+  --color-esfriou: #1d4fb8;
+  --color-esfriou-bg: #dce6fa;
+  --color-esfriou-borda: #2f5fd0;
+  --color-esfriou-forte: #12306e;
+  --color-esfriou-2: #24407a;
+
+  /* Paleta do quiz de download */
+  --color-navy: #0a0f24;
+  --color-navy-2: #121a3a;
+  --color-navy-3: #161f45;
+  --color-limao: #c6ff3d;
+  --color-gelo: #f4f6ff;
+  --color-nevoa: #9aa3c7;
+
+  --radius-4xl: 1.75rem;
+  --radius-5xl: 2rem;
+  --radius-celular: 2.75rem;
+}
+
+@utility titulo-secao {
+  font-family: var(--font-display);
+  font-size: clamp(2.125rem, 4vw, 3.375rem);
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--color-creme);
+  color: var(--color-texto);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  text-underline-offset: 3px;
+}
+
+:focus-visible:not([tabindex="-1"]) {
+  outline: 2px solid var(--color-esfriou-borda);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+input[type="range"] {
+  accent-color: #000;
+  width: 100%;
+  height: 28px;
+}
+
+/* Entrada dos elementos */
+@keyframes surgir {
+  0% {
+    opacity: 0;
+    transform: translate(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.surgir {
+  animation: 0.22s ease-out both surgir;
+}
+
+.js [data-surge] {
+  opacity: 0;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    translate 0.3s ease-out,
+    scale 0.3s ease-out,
+    box-shadow 0.3s;
+  transition-delay: var(--atraso, 0s);
+  transform: translateY(22px);
+}
+
+.js [data-surge].visivel {
+  opacity: 1;
+  transform: none;
+}
+
+.js [data-surge].visivel:hover {
+  transition-delay: 0s;
+}
+
+/* Animações do topo da home */
+@keyframes acende {
+  0% {
+    box-shadow: none;
+    border-color: #00000014;
+  }
+  to {
+    border-color: var(--color-esfriou-borda);
+    box-shadow: 0 0 0 4px #2f5fd026;
+  }
+}
+
+@keyframes pula {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes chega {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes flutua {
+  0%,
+  to {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes sobe {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes risca {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.hero-painel {
+  animation: 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both sobe;
+}
+
+.hero-acende {
+  animation: 0.5s ease-out 1.2s both acende;
+}
+
+.hero-selo {
+  animation: 0.45s ease-out 1.5s both pula;
+}
+
+.hero-lembrete {
+  animation:
+    0.6s cubic-bezier(0.22, 1, 0.36, 1) 2.1s both chega,
+    4.5s ease-in-out 2.8s infinite flutua;
+}
+
+.hero-risco path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300px;
+  animation: 0.9s ease-out 0.5s forwards risca;
+}
+
+/* Faixa de nichos rolando */
+@keyframes rola {
+  to {
+    transform: translate(-50%);
+  }
+}
+
+.faixa-rola {
+  animation: 38s linear infinite rola;
+}
+
+.faixa:hover .faixa-rola {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js [data-surge] {
+    opacity: 1;
+    transform: none;
+  }
+  .faixa-rola {
+    animation: none !important;
+  }
+  .hero-risco path {
+    stroke-dashoffset: 0;
+  }
+  *,
+  :before,
+  :after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
