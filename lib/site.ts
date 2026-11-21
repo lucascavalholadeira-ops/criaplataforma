@@ -3,7 +3,7 @@ export const site = {
   nomeCompleto: "Cria | Sites e Sistemas",
   /** Endereço público do site (usado em links canônicos, sitemap e imagens de compartilhamento). */
   dominio: process.env.NEXT_PUBLIC_SITE_URL ?? "https://criaplataforma.vercel.app",
-  whatsapp: "55XXXXXXXXXXX",
+  whatsapp: "5598988839841",
   whatsappMensagem: "Oi! Vim pelo site da Cria e quero saber mais.",
   instagram: "criadigitals",
   email: "contato@cria.com.br",

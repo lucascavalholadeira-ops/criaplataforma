@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import Link from "next/link";
+import { linkWhatsapp } from "@/lib/site";
 import { BotaoLink, Container, ItemCheck, TituloSecao } from "@/components/ui";
 import Calculadora from "@/components/home/Calculadora";
 import Faq from "@/components/home/Faq";
@@ -37,7 +38,7 @@ export default function Home() {
               Um painel simples que mostra quem fechou, quem está em dúvida e quem esfriou. E te lembra de chamar de volta.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <BotaoLink href="https://wa.me/55XXXXXXXXXXX?text=Oi!%20Vi%20o%20site%20da%20Cria%20e%20quero%20entender%20como%20o%20Painel%20funciona%20pro%20meu%20neg%C3%B3cio." externo evento="whatsapp_click" params={{ local: "hero" }}>
+              <BotaoLink href={linkWhatsapp("Oi! Vi o site da Cria e quero entender como o Painel funciona pro meu negócio.")} externo evento="whatsapp_click" params={{ local: "hero" }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden className="h-5 w-5">
                   <path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z" />
                 </svg>
@@ -517,7 +518,7 @@ export default function Home() {
               <h3 className="text-[26px] font-semibold leading-[1.15]">Estamos montando os primeiros cases.</h3>
               <p className="mt-3 leading-[1.55] text-claro-2">Quer que o seu negócio seja um deles?</p>
             </div>
-            <BotaoLink href="https://wa.me/55XXXXXXXXXXX?text=Oi!%20Vi%20no%20site%20que%20voc%C3%AAs%20est%C3%A3o%20montando%20os%20primeiros%20cases%20e%20quero%20que%20o%20meu%20neg%C3%B3cio%20seja%20um%20deles." externo variante="creme" tamanho="sm" evento="whatsapp_click" params={{ local: "primeiros_cases" }} className="self-start">Quero ser um dos primeiros</BotaoLink>
+            <BotaoLink href={linkWhatsapp("Oi! Vi no site que vocês estão montando os primeiros cases e quero que o meu negócio seja um deles.")} externo variante="creme" tamanho="sm" evento="whatsapp_click" params={{ local: "primeiros_cases" }} className="self-start">Quero ser um dos primeiros</BotaoLink>
           </div>
         </Container>
       </section>

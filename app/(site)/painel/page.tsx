@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
+import { linkWhatsapp } from "@/lib/site";
 import { BotaoLink, Container, ItemCheck, TituloSecao } from "@/components/ui";
 import Faq from "@/components/home/Faq";
 import PainelCelular from "@/components/PainelCelular";
@@ -29,7 +30,7 @@ export default function PaginaPainel() {
             </p>
             <p className="mt-4 font-display text-xl font-semibold">Valor sob medida, combinado na conversa.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <BotaoLink href="https://wa.me/55XXXXXXXXXXX?text=Oi!%20Vi%20a%20p%C3%A1gina%20do%20Painel%20no%20site%20e%20quero%20conhecer." externo evento="quero_ver_painel" params={{ local: "painel_hero" }}>
+              <BotaoLink href={linkWhatsapp("Oi! Vi a página do Painel no site e quero conhecer.")} externo evento="quero_ver_painel" params={{ local: "painel_hero" }}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden className="h-5 w-5">
                   <path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z" />
                 </svg>
@@ -443,7 +444,7 @@ export default function PaginaPainel() {
           <p className="mt-4 mb-9 text-lg text-claro-2">
             Me chama no WhatsApp. Eu te mostro funcionando, sem compromisso.
           </p>
-          <BotaoLink href="https://wa.me/55XXXXXXXXXXX?text=Oi!%20Vi%20a%20p%C3%A1gina%20do%20Painel%20no%20site%20e%20quero%20conhecer." externo variante="creme" evento="quero_ver_painel" params={{ local: "painel_final" }} className="w-full sm:w-auto">
+          <BotaoLink href={linkWhatsapp("Oi! Vi a página do Painel no site e quero conhecer.")} externo variante="creme" evento="quero_ver_painel" params={{ local: "painel_final" }} className="w-full sm:w-auto">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden className="h-5 w-5">
               <path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z" />
             </svg>
