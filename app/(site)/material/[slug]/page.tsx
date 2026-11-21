@@ -48,7 +48,7 @@ export default async function PaginaMaterial({ params }: Props) {
   const { slug } = await params;
   const m = buscarMaterial(slug);
   if (!m) notFound();
-  const outros = materiais.filter((o) => o.slug !== m.slug);
+  const outros = materiais.filter((o) => o.slug !== m.slug).slice(0, 3);
 
   return (
     <>

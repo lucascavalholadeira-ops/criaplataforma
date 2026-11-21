@@ -528,7 +528,7 @@ export default function Home() {
             <Link href="/material" className="text-base font-bold underline">Ver todos os materiais</Link>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {materiais.map((m, i) => (
+            {materiais.slice(0, 3).map((m, i) => (
                 <CartaoMaterial key={m.slug} m={resumo(m)} botao="Baixar grátis" indice={i} />
               ))}
           </div>
