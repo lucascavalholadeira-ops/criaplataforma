@@ -2,11 +2,23 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { IconeSeta } from "../icones";
+import { IconeDownload, IconeSeta } from "../icones";
+import { EVENTO_ABRIR } from "./QuizDownload";
 
 const rotulo = (atual: number, total: number) => `Página ${atual} de ${total}`;
 
-export default function Carrossel({ paginas, titulo }: { paginas: string[]; titulo: string }) {
+/** Quantas páginas aparecem abertas na prévia. As demais ficam borradas até o download. */
+export const PAGINAS_LIBERADAS = 2;
+
+export default function Carrossel({
+  paginas,
+  titulo,
+  liberadas = PAGINAS_LIBERADAS,
+}: {
+  paginas: string[];
+  titulo: string;
+  liberadas?: number;
+}) {
   const trilho = useRef<HTMLDivElement>(null);
   const [atual, setAtual] = useState(0);
 
@@ -60,14 +72,37 @@ export default function Carrossel({ paginas, titulo }: { paginas: string[]; titu
             aria-label={rotulo(i + 1, paginas.length)}
             role="group"
           >
-            <Image
-              src={src}
-              alt={`${titulo}, ${rotulo(i + 1, paginas.length).toLowerCase()}`}
-              fill
-              sizes="(max-width: 640px) 78vw, (max-width: 1024px) 42vw, 360px"
-              className="object-cover"
-              priority={i === 0}
-            />
+            {i < liberadas ? (
+              <Image
+                src={src}
+                alt={`${titulo}, ${rotulo(i + 1, paginas.length).toLowerCase()}`}
+                fill
+                sizes="(max-width: 640px) 78vw, (max-width: 1024px) 42vw, 360px"
+                className="object-cover"
+                priority={i === 0}
+              />
+            ) : (
+              <>
+                {/* Versão minúscula da página, ampliada e borrada: dá para ver que tem conteúdo, mas não dá para ler. */}
+                <Image src={src} alt="" aria-hidden fill sizes="48px" quality={30} className="scale-110 object-cover blur-md" />
+                <button
+                  type="button"
+                  onClick={() => window.dispatchEvent(new Event(EVENTO_ABRIR))}
+                  className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-navy/45 p-6 text-center text-gelo"
+                >
+                  <span className="grid h-14 w-14 place-items-center rounded-full bg-limao text-navy">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden className="h-6 w-6">
+                      <rect x="5" y="11" width="14" height="10" rx="2" />
+                      <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+                    </svg>
+                  </span>
+                  <span className="font-display text-[22px] leading-tight font-semibold">Disponível após o download</span>
+                  <span className="inline-flex min-h-11 items-center gap-2 rounded-full bg-limao px-5 text-[15px] font-bold text-navy">
+                    <IconeDownload className="h-[18px] w-[18px]" /> Baixar grátis
+                  </span>
+                </button>
+              </>
+            )}
           </div>
         ))}
       </div>
