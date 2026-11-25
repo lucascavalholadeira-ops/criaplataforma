@@ -17,7 +17,7 @@ export default function Privacidade() {
             <p>[Texto provisório para revisão.]</p>
             <h2>Quais dados coletamos</h2>
             <p>
-              Este site não pede cadastro para baixar materiais. Se você nos chamar no WhatsApp, recebemos o seu nome, número e as mensagens que você mandar.
+              Para baixar um material gratuito, pedimos o seu nome, o seu WhatsApp e as respostas das perguntas rápidas sobre o seu negócio. Você só envia se marcar a caixa autorizando a Cria a mandar materiais e mensagens no WhatsApp. Se você nos chamar no WhatsApp, recebemos o seu nome, número e as mensagens que você mandar.
             </p>
             <h2>Cookies e medição</h2>
             <p>
